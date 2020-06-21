@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dark Mode Toggle</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+
+
+</head>
+
+<body>
+  <div class="container">
+    <h1>Light/Dark Mode</h1>
+    <div class="toggle-container">
+      <input type="checkbox" id="switch" name="theme" /><label for="switch">Toggle</label>
+    </div>
+    <p>
+      As per the <a href="https://material.io/design/color/dark-theme.html#usage"
+        style="text-decoration: none; color: #0077FF;">Material Design Documentation</a>, a
+      dark theme displays dark surfaces across the majority of a UI. It's designed to be a supplemental mode to a
+      default (or light) theme.
+
+      Dark themes reduce the luminance emitted by device screens, while still meeting minimum color contrast ratios.
+      They help improve visual ergonomics by reducing eye strain, adjusting brightness to current lighting conditions,
+      and facilitating screen use in dark environments – all while conserving battery power. Devices with OLED screens
+      benefit from the ability to turn off black pixels at any time of day.
+    </p>
+  </div>
+
+  <script>
+    var checkbox = document.querySelector('input[name=theme]');
+    checkbox.addEventListener('change', function () {
+      if (this.checked) {
+        trans()
+        document.documentElement.setAttribute('data-theme', 'dark')
+      } else {
+        trans()
+        document.documentElement.setAttribute('data-theme', 'light')
+      }
+    })
+    let trans = () => {
+      document.documentElement.classList.add('transition');
+      window.setTimeout(() => {
+        document.documentElement.classList.remove('transition');
+      }, 1000)
+    }
+  </script>
+</body>
+
+</html>
